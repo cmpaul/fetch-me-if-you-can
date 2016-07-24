@@ -40,7 +40,8 @@ defmodule FetchMeIfYouCan.Mixfile do
      {:timex, "~> 2.0"},
      {:exq, "~> 0.7.2"},
      {:httpoison, "~> 0.9.0"},
-     {:uuid, "~> 1.1"}]
+     {:uuid, "~> 1.1"},
+     {:poison, "~> 2.0"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.

@@ -1,4 +1,4 @@
-<h2>Show job</h2>
+<h2>Job Detail</h2>
 
 <ul>
 
@@ -8,16 +8,32 @@
   </li>
 
   <li>
-    <strong>Content:</strong>
-    <%= @job.content %>
+    <strong>URL:</strong>
+    <a href=<%= @job.url %> target="_blank"><%= @job.url %></a>
   </li>
 
   <li>
     <strong>Status:</strong>
-    <%= @job.status %>
+    <span class="label label-<%= get_badge_class @job.status %>"><%= String.capitalize @job.status %></span>
+  </li>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @job.title %>
+  </li>
+
+  <li>
+    <strong>Content Size:</strong>
+    <%= byte_size @job.content %> bytes
+  </li>
+
+  <li>
+    <strong>Thumbnail:</strong><br />
+    <%= if @job.thumbnail_data do %>
+    <img src="data:<%= @job.thumbnail_mimetype %>;charset=utf-8;base64,<%= @job.thumbnail_data %>" />
+    <%= else %>
+    (none)
+    <% end %>
   </li>
 
 </ul>
-
-<%= link "Edit", to: job_path(@conn, :edit, @job) %>
-<%= link "Back", to: job_path(@conn, :index) %>

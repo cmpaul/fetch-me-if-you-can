@@ -8,6 +8,8 @@ defmodule FetchMeIfYouCan.Repo.Migrations.CreateJob do
       add :title, :string
       add :content, :text
       add :status, :string, default: "processing"
+      add :thumbnail_data, :text
+      add :thumbnail_mimetype, :string
 
       timestamps
     end

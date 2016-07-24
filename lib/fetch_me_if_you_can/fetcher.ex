@@ -3,6 +3,9 @@ defmodule FetchMeIfYouCan.Fetcher do
 
   alias FetchMeIfYouCan.Repo
   alias FetchMeIfYouCan.Job
+
+  @thumbnail_api ~s"https://www.googleapis.com/pagespeedonline/v1/runPagespeed?screenshot=true&url="
+
   @doc """
   Fetches a URL and saves it if the response is successful.
 
@@ -21,10 +24,8 @@ defmodule FetchMeIfYouCan.Fetcher do
       try do
         case HTTPoison.get(url) do
           {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
-            capture_title = Regex.named_captures(~r/<title>(?<title>.*)<\/title>/, body)
-            %{content: Enum.join(for <<c::utf8 <- body>>, do: <<c::utf8>>),
-              status: "success",
-              title: capture_title["title"]}
+            fetch_thumbnail(url)
+              |> Map.merge(%{content: Enum.join(for <<c::utf8 <- body>>, do: <<c::utf8>>), status: "success"})
           {:ok, %HTTPoison.Response{status_code: 302}} ->
             %{content: "Received a redirect", status: "error"}
           {:ok, %HTTPoison.Response{status_code: 404}} ->
@@ -39,5 +40,16 @@ defmodule FetchMeIfYouCan.Fetcher do
         e -> %{content: e, status: "error"}
       end
     Job.changeset(job, params) |> Repo.update!
+  end
+
+  defp fetch_thumbnail(url) do
+    case HTTPoison.get(@thumbnail_api <> URI.encode(url)) do
+      {:ok, response} ->
+        data = Poison.decode!(response.body)
+        %{title: data["title"],
+          thumbnail_data: Regex.replace(~r/-/, Regex.replace(~r/_/, data["screenshot"]["data"], "/"), "+"),
+          thumbnail_mimetype: data["screenshot"]["mime_type"]}
+      _ -> %{title: nil, thumbnail_data: nil, thumbnail_mimetype: nil}
+    end
   end
 end
