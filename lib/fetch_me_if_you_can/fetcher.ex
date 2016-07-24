@@ -3,6 +3,7 @@ defmodule FetchMeIfYouCan.Fetcher do
 
   alias FetchMeIfYouCan.Repo
   alias FetchMeIfYouCan.Job
+  
   @doc """
   Fetches a URL and saves it if the response is successful.
 

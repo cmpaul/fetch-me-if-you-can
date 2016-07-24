@@ -14,17 +14,13 @@ defmodule FetchMeIfYouCan.Router do
   end
 
   scope "/", FetchMeIfYouCan do
-    pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
-
+    pipe_through :browser
+    get "/", JobController, :index
     resources "/jobs", JobController
   end
 
-  # Other scopes may use custom stacks.
   scope "/api", FetchMeIfYouCan do
     pipe_through :api
-
     get  "/job/*id", Api.JobController, :show
     post "/job", Api.JobController, :create
   end

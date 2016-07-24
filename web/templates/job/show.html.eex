@@ -8,13 +8,23 @@
   </li>
 
   <li>
-    <strong>Content:</strong>
-    <%= @job.content %>
+    <strong>URL:</strong>
+    <%= @job.url %>
   </li>
 
   <li>
     <strong>Status:</strong>
     <%= @job.status %>
+  </li>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @job.title %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @job.content %>
   </li>
 
 </ul>
