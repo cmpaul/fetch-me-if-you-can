@@ -1,7 +1,9 @@
 # FetchMeIfYouCan
 
-To start your Phoenix app:
+To start:
 
+  * Install [redis](http://redis.io/)
+  * Install [postgres](https://www.postgresql.org/)
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
   * Start Phoenix endpoint with `mix phoenix.server`
