@@ -16,7 +16,7 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-            <li><a href="http://github.com/cmpaul/fetch_me_if_you_can">GitHub</a></li>
+            <li><a href="http://github.com/cmpaul/fetch-me-if-you-can">GitHub</a></li>
           </ul>
         </nav>
         <span class="logo"><h1>Fetch Me If You Can!</h1></span>
