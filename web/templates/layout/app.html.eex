@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello FetchMeIfYouCan!</title>
+    <title>FetchMeIfYouCan!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -16,10 +16,10 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+            <li><a href="http://github.com/cmpaul/fetch_me_if_you_can">GitHub</a></li>
           </ul>
         </nav>
-        <span class="logo"></span>
+        <span class="logo"><h1>Fetch Me If You Can!</h1></span>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

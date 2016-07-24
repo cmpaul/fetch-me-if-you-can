@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Job</th>
-      <th>Content</th>
+      <th>URL</th>
       <th>Status</th>
 
       <th></th>
@@ -14,7 +14,7 @@
 <%= for job <- @jobs do %>
     <tr>
       <td><%= job.job_id %></td>
-      <td><%= job.content %></td>
+      <td><%= job.url %></td>
       <td><%= job.status %></td>
 
       <td class="text-right">
@@ -25,5 +25,3 @@
 <% end %>
   </tbody>
 </table>
-
-<%= link "New job", to: job_path(@conn, :new) %>

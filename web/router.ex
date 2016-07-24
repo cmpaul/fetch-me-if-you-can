@@ -22,7 +22,10 @@ defmodule FetchMeIfYouCan.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", FetchMeIfYouCan do
-  #   pipe_through :api
-  # end
+  scope "/api", FetchMeIfYouCan do
+    pipe_through :api
+
+    get "/job", Api.JobController, :get_job
+    get "/fetch", Api.FetchController, :fetch
+  end
 end

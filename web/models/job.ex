@@ -6,13 +6,13 @@ defmodule FetchMeIfYouCan.Job do
     field :url, :string
     field :title, :string
     field :content, :string
-    field :status, :string
+    field :status, :string, default: "processing"
 
     timestamps
   end
 
-  @required_fields ~w(job_id url status)
-  @optional_fields ~w(title content)
+  @required_fields ~w(job_id url)
+  @optional_fields ~w(title content status)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
