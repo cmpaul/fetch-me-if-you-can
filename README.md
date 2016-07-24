@@ -2,9 +2,12 @@
 
 To start:
 
+  * Install [Erlang](https://www.erlang.org/)
+  * Install [Elixir](http://elixir-lang.org/)
+  * Install [hex](https://hex.pm/)
   * Install [redis](http://redis.io/)
   * Install [postgres](https://www.postgresql.org/)
-  * Install dependencies with `mix deps.get`
+  * Install mix dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
   * Start Phoenix endpoint with `mix phoenix.server`
 
