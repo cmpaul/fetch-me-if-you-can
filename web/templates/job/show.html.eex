@@ -1,0 +1,23 @@
+<h2>Show job</h2>
+
+<ul>
+
+  <li>
+    <strong>Job:</strong>
+    <%= @job.job_id %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @job.content %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @job.status %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: job_path(@conn, :edit, @job) %>
+<%= link "Back", to: job_path(@conn, :index) %>
