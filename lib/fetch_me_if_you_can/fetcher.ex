@@ -31,7 +31,8 @@ defmodule FetchMeIfYouCan.Fetcher do
             %{content: "Not found", status: "error"}
           {:error, %HTTPoison.Error{reason: :nxdomain}} ->
             %{content: "Invalid URL", status: "error"}
-          _ ->
+          {_, response} ->
+            Logger.debug inspect(response)
             %{content: "Unknown response, implement me!", status: "error"}
         end
       catch
