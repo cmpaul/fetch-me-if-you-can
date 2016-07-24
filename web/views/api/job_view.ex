@@ -1,7 +1,7 @@
 defmodule FetchMeIfYouCan.Api.JobView do
   use FetchMeIfYouCan.Web, :view
 
-  def render("job.json", %{job: job}) do
+  def render("show.json", %{job: job}) do
     %{id: job.job_id,
       url: job.url,
       status: job.status,

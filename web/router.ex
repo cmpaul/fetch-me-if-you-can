@@ -25,7 +25,7 @@ defmodule FetchMeIfYouCan.Router do
   scope "/api", FetchMeIfYouCan do
     pipe_through :api
 
-    get "/job/*id", Api.JobController, :get_job
-    get "/fetch/*url", Api.FetchController, :fetch
+    get  "/job/*id", Api.JobController, :show
+    post "/job", Api.JobController, :create
   end
 end
