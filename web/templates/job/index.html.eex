@@ -19,7 +19,6 @@
 
       <td class="text-right">
         <%= link "Show", to: job_path(@conn, :show, job), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: job_path(@conn, :edit, job), class: "btn btn-default btn-xs" %>
         <%= link "Delete", to: job_path(@conn, :delete, job), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
       </td>
     </tr>

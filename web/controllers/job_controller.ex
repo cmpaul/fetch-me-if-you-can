@@ -33,26 +33,6 @@ defmodule FetchMeIfYouCan.JobController do
     render(conn, "show.html", job: job)
   end
 
-  def edit(conn, %{"id" => id}) do
-    job = Repo.get!(Job, id)
-    changeset = Job.changeset(job)
-    render(conn, "edit.html", job: job, changeset: changeset)
-  end
-
-  def update(conn, %{"id" => id, "job" => job_params}) do
-    job = Repo.get!(Job, id)
-    changeset = Job.changeset(job, job_params)
-
-    case Repo.update(changeset) do
-      {:ok, job} ->
-        conn
-        |> put_flash(:info, "Job updated successfully.")
-        |> redirect(to: job_path(conn, :show, job))
-      {:error, changeset} ->
-        render(conn, "edit.html", job: job, changeset: changeset)
-    end
-  end
-
   def delete(conn, %{"id" => id}) do
     job = Repo.get!(Job, id)
 

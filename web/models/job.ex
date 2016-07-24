@@ -3,14 +3,16 @@ defmodule FetchMeIfYouCan.Job do
 
   schema "jobs" do
     field :job_id, :string
+    field :url, :string
+    field :title, :string
     field :content, :string
     field :status, :string
 
     timestamps
   end
 
-  @required_fields ~w(job_id content status)
-  @optional_fields ~w()
+  @required_fields ~w(job_id url status)
+  @optional_fields ~w(title content)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

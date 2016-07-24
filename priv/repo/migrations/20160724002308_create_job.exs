@@ -4,8 +4,10 @@ defmodule FetchMeIfYouCan.Repo.Migrations.CreateJob do
   def change do
     create table(:jobs) do
       add :job_id, :string
+      add :url, :string
+      add :title, :string
       add :content, :text
-      add :status, :string
+      add :status, :string, default: "processing"
 
       timestamps
     end
