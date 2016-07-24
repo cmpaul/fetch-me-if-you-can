@@ -1,4 +1,4 @@
-# Fetch Me If You Can
+# Fetch Me If You Can!
 
 Give this web app a URL and it will attempt to fetch the site contents for you asynchrously. Use the job ID to retrieve those contents at a later time.
 
@@ -32,6 +32,10 @@ Give this web app a URL and it will attempt to fetch the site contents for you a
 Thanks to the magic of [Phoenix](http://www.phoenixframework.org), it also provides an admin view of the jobs that have been run.
 
 ![jobs](priv/static/images/jobs.png)
+
+A detailed display provides job status and a thumbnail:
+
+![job detail](priv/static/images/detail.png)
 
 ## Installation
 
