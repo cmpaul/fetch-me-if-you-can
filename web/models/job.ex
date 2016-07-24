@@ -7,12 +7,14 @@ defmodule FetchMeIfYouCan.Job do
     field :title, :string
     field :content, :string
     field :status, :string, default: "processing"
+    field :thumbnail_data, :string
+    field :thumbnail_mimetype, :string
 
     timestamps
   end
 
   @required_fields ~w(job_id url)
-  @optional_fields ~w(title content status)
+  @optional_fields ~w(title content status thumbnail_data thumbnail_mimetype)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
