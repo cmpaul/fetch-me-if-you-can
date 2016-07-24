@@ -16,7 +16,7 @@ Give this web app a URL and it will attempt to fetch the site contents for you a
        "content": null
      }
      ```
-  * `GET /job` - return the status of a previously run job
+  * `GET /api/job` - return the status of a previously run job
 
     ```bash
     $ curl "http://localhost:4000/api/job/2d80bd8dc50140089ae1ce6766f38c57"
