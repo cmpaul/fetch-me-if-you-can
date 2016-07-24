@@ -16,17 +16,25 @@ defmodule FetchMeIfYouCan.Api.FetchController do
         # Build the changeset to store to the database
         changeset = Job.changeset(%Job{}, %{job_id: jid, url: url})
         case Repo.insert(changeset) do
-          {:ok, job} -> render_accepted_job(conn, job)
-          {:error, changeset} -> render(conn, "error.json", changeset.errors)
+          {:ok, job} ->
+            # Render the success message
+            render_accepted_job(conn, job)
+          {:error, changeset} ->
+            conn
+              |> put_resp_content_type("application/json")
+              |> render("error.json", changeset.errors)
         end
       {:error, reason} ->
-        render(conn, "error.json", reason)
+        conn
+          |> put_resp_content_type("application/json")
+          |> render("error.json", reason)
     end
   end
 
   defp render_accepted_job(conn, job) do
     conn
       |> put_status(202) # Accepted
+      |> put_resp_content_type("application/json")
       |> render("fetch.json", %{job: job})
   end
 
